@@ -51,7 +51,18 @@ class Hashset<T> {
    * @returns the union of this set and S
    */
   union(S:Hashset<T>):Hashset<T> {
-    
+
+  const result = new Hashset<T>();
+  const iter = S.values();
+  for (let i = iter.next(); !i.done; i = iter.next()){
+      result.add(i.value); 
+  }
+  const iter2nd = this.values();
+  for (let i = iter2nd.next(); !i.done; i = iter2nd.next()){
+      result.add(i.value);
+  }
+  return result;
+
   }
   /**
    * returns the intersection of this set with set S
@@ -61,13 +72,15 @@ class Hashset<T> {
    * @returns the intersection of this set and S
    */
   intersect(S:Hashset<T>):Hashset<T> {
+    /*
+    const result = new Hashset<T>();
+    const iter = S.values();
 
-    const result = null;
-    const iter = null;
-
-   for (){
+   for (let i = iter.next(); !i.done; i = iter.next()){
     
+   }
 
+   */
   }
   /**
    * returns the difference of this set with set S
